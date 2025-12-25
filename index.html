@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Pertama Alwan</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Gift</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Halo, ini website pertama saya 🚀</h1>
-    <p>Website ini di-host pakai GitHub Pages.</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Tentang Saya</h2>
-      <p>Nama saya Alwan, saya sedang belajar bikin website via GitHub.</p>
-    </section>
+<!-- BALLOON DECOR -->
+<div class="balloon left"></div>
+<div class="balloon right"></div>
 
-    <section>
-      <h2>Kontak</h2>
-      <p>Email: <a href="mailto:alwan@example.com">alwan@example.com</a></p>
-    </section>
-  </main>
+<!-- FORM -->
+<div class="card fade-in" id="formSection">
+    <h1>🎉 Birthday Gift 🎉</h1>
+    <p>Isi data kamu terlebih dahulu</p>
 
-  <footer>
-    <p>© 2025 Dibuat oleh Alwan</p>
-  </footer>
+    <input type="text" id="name" placeholder="Nama">
+    <input type="date" id="birth">
+    
+    <select id="gender">
+        <option value="">Jenis Kelamin</option>
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+    </select>
+
+    <button onclick="showBirthday()">Lihat Ucapan</button>
+</div>
+
+<!-- RESULT -->
+<div class="card hidden scale-in" id="resultSection">
+    <h2>HAPPY BIRTHDAY 🎂</h2>
+    <h1 id="resultName"></h1>
+    <p id="resultText"></p>
+    <button onclick="reset()">Ulangi</button>
+</div>
+
+<!-- CONFETTI -->
+<canvas id="confetti"></canvas>
+
+<!-- MUSIC -->
+<audio id="music" src="happy-birthday-220024.mp3"></audio>
+
+<script src="script.js"></script>
 </body>
 </html>
