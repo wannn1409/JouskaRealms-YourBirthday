@@ -1,28 +1,145 @@
+:root {
+    --purple: #7B7CFF;
+    --blue: #8FD3F4;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f9;
-  color: #333;
-  text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-header {
-  background: #0A1D56;
-  color: white;
-  padding: 2rem;
+/* CARD */
+.card {
+    background: var(--white);
+    width: 90%;
+    max-width: 380px;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-main {
-  padding: 2rem;
+.card h1 {
+    color: var(--purple);
 }
 
-section {
-  margin-bottom: 2rem;
+.card h2 {
+    color: var(--purple);
+    animation: blink 1.5s infinite;
 }
 
-footer {
-  background: #222;
-  color: #ddd;
-  padding: 1rem;
+.card p {
+    margin: 10px 0 20px;
+    color: #555;
+}
+
+/* INPUT */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 2px solid var(--purple);
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border: none;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* DECOR BALLOON */
+.balloon {
+    position: fixed;
+    width: 80px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, white, var(--purple));
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.6;
+}
+
+.balloon.left {
+    left: -20px;
+    bottom: -150px;
+}
+
+.balloon.right {
+    right: -20px;
+    bottom: -180px;
+    animation-delay: 2s;
+}
+
+/* ANIMATION */
+.fade-in {
+    animation: fadeIn 1s ease;
+}
+
+.scale-in {
+    animation: scaleIn 0.8s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-120vh); }
+}
+
+@keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* CONFETTI */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .balloon {
+        width: 50px;
+        height: 80px;
+    }
 }
