@@ -38,7 +38,7 @@ function showBirthday() {
     const gender = document.getElementById("gender").value;
 
     if (!name || !birth || !gender) {
-        alert("Lengkapi semua data!");
+        alert("lengkapi dulu semua datanya yaa");
         return;
     }
 
@@ -48,7 +48,7 @@ function showBirthday() {
     document.getElementById("resultName").innerText = name;
     document.getElementById("resultText").innerText =
         gender === "Laki-laki"
-        ? "Semoga kamu semakin kuat dan sukses 💪✨"
+        ? "Semoga kamu selalu bahagia dan bersinar💪✨"
         : "Semoga kamu selalu bahagia dan bersinar 🌸✨";
 
     document.getElementById("music").play();
