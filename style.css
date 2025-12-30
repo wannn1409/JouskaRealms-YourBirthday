@@ -191,11 +191,16 @@ button {
   z-index: 1;
 }
 
-.photo-frame img {
-  width: 90%;
-  height: 90%;
+.photo-frame {
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  object-fit: cover;
+  border: 6px solid white;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app {
