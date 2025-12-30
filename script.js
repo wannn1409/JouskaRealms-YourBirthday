@@ -5,7 +5,8 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 
 const sections = ["formSection", "sec1", "sec2", "sec3", "sec4", "sec5"];
-let current = 0;
+const tapAllowedSections = ["sec2", "sec3"];
+let currentIndex = 0;
 let canNext = false;
 let userName = "";
 
@@ -34,40 +35,44 @@ function startConfetti() {
 }
 
 /* ================= SECTION CONTROL ================= */
-function showSection(i) {
-  sections.forEach((id, idx) => {
+function showSection(index) {
+  sections.forEach((id, i) => {
     const el = document.getElementById(id);
-    if (el) el.style.display = idx === i ? "flex" : "none";
+    if (el) el.style.display = i === index ? "flex" : "none";
   });
 
-  current = i;
+  currentIndex = index;
   canNext = false;
-  toggleHint(false);
+  updateTapHint();
 
+  // efek khusus per section
+  if (index === 1) typeText("userName", userName, 120, true);
+  if (index === 2) typeText("birthdayText", birthdayMessage(), 50);
+  if (index === 5) startConfetti();
+
+  // aktifkan tap setelah 5 detik
   setTimeout(() => {
     canNext = true;
-    toggleHint(true);
+    updateTapHint();
   }, 5000);
-
-  if (i === 1) typeText("userName", userName, 120, true);
-  if (i === 2) typeText("birthdayText", birthdayMessage(), 50);
-  if (i === 5) startConfetti();
 }
 
 /* ================= TAP HINT ================= */
-function toggleHint(show) {
-  document.querySelectorAll("#tapHint").forEach(h => {
-    h.style.opacity = show ? "1" : "0";
-  });
+function updateTapHint() {
+  const hint = document.getElementById("tapHint");
+  const currentId = sections[currentIndex];
+
+  hint.style.opacity =
+    tapAllowedSections.includes(currentId) && canNext ? "1" : "0";
 }
 
-/* ================= TYPING EFFECT ================= */
+/* ================= TYPING ================= */
 function typeText(id, text, speed, isName = false) {
   const el = document.getElementById(id);
   el.innerHTML = "";
 
   if (isName) {
-    el.style.color = "#ff6fae";
+    el.style.color = "#7B7CFF";
     el.style.fontFamily = "Pacifico, cursive";
   }
 
@@ -117,10 +122,15 @@ function nextSection() {
   showSection(5);
 }
 
-/* ================= TAP CONTROL ================= */
+/* ================= TAP ================= */
 document.addEventListener("click", () => {
-  if (canNext && current < sections.length - 1) {
-    showSection(current + 1);
+  if (!canNext) return;
+
+  const currentId = sections[currentIndex];
+  if (!tapAllowedSections.includes(currentId)) return;
+
+  if (currentIndex < sections.length - 1) {
+    showSection(currentIndex + 1);
   }
 });
 
