@@ -4,8 +4,16 @@ const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-const sections = ["formSection", "sec2", "sec3", "sec4", "sec5"];
-const tapAllowedSections = ["sec1", "sec2", "sec3"];
+const sections = [
+  "formSection", // 0
+  "sec1",        // 1 (tanpa tap)
+  "sec2",        // 2 (typing + tap)
+  "sec3",        // 3 (tap)
+  "sec4",        // 4 (tanpa tap)
+  "sec5"         // 5 (confetti)
+];
+
+const tapAllowedSections = ["sec2", "sec3"];
 let currentIndex = 0;
 let canNext = false;
 let userName = "";
@@ -45,16 +53,26 @@ function showSection(index) {
   canNext = false;
   updateTapHint();
 
-  // efek khusus per section
-  if (index === 1) typeText("userName", userName, 120, true);
-  if (index === 2) typeText("birthdayText", birthdayMessage(), 50);
-  if (index === 5) startConfetti();
+  // efek per section
+  if (index === 1) {
+  typeText("userName", userName, 120, true);
 
-  // aktifkan tap setelah 5 detik
-  setTimeout(() => {
-    canNext = true;
-    updateTapHint();
-  }, 5000);
+
+  if (index === 2) {
+    typeText("birthdayText", birthdayMessage(), 50);
+  }
+
+  if (index === 5) {
+    startConfetti();
+  }
+
+  // tap aktif hanya untuk section tertentu
+  if (tapAllowedSections.includes(sections[index])) {
+    setTimeout(() => {
+      canNext = true;
+      updateTapHint();
+    }, 5000);
+  }
 }
 
 /* ================= TAP HINT ================= */
@@ -84,13 +102,19 @@ function typeText(id, text, speed, isName = false) {
 }
 
 function birthdayMessage() {
-  return `Haii kamu ${userName} yang lagi ulang tahun 🥳🎂✨  
-Aku ucapkan Selamat Ulang Tahun untuk kamu yaa, 
-aku doakan kamu sehat selalu, panjang umurnya, 
-lancar rezekinya, dan pertemanan kita 
-akan terus terjalin semakin baik bersama. 
-Jadikan hari ini hari yang berbahagia untukmu yaa 🤍`;
+  return `Haii ${userName} 🥳🎂✨  
+
+Selamat ulang tahun yaa 🤍  
+Semoga kamu selalu sehat, panjang umur,  
+rezekinya lancar, dan semua hal baik  
+pelan-pelan datang ke hidup kamu.  
+
+Semoga pertemanan kita juga  
+terus terjalin dengan baik.  
+Hari ini milik kamu —  
+nikmati dan berbahagialah 🤍✨`;
 }
+
 
 /* ================= FORM ================= */
 function showBirthday() {
@@ -126,7 +150,8 @@ function nextSection() {
 }
 
 /* ================= TAP ================= */
-document.addEventListener("click", () => {
+document.addEventListener("click", (e) => {
+  if (["TEXTAREA", "INPUT", "BUTTON"].includes(e.target.tagName)) return;
   if (!canNext) return;
 
   const currentId = sections[currentIndex];
@@ -136,6 +161,7 @@ document.addEventListener("click", () => {
     showSection(currentIndex + 1);
   }
 });
+
 
 /* ================= START ================= */
 document.addEventListener("DOMContentLoaded", () => showSection(0));
