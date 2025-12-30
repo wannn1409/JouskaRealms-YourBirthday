@@ -179,9 +179,6 @@ button {
 
 .section.active {
   display: flex;
-  opacity: 1;
-  pointer-events: auto;
-  animation: fadeIn 1.2s ease;
 }
 
 /* ===== LAYER FIX ===== */
@@ -210,3 +207,30 @@ button {
     align-items: center;
     position: relative;
 }
+
+/* Judul ucapan */
+#birthdayText {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #444;
+  max-width: 500px;
+}
+
+/* Nama ulang tahun */
+#userName {
+  font-family: 'Pacifico', cursive;
+  font-size: 34px;
+  color: #7B7CFF;
+}
+
+#tapHint {
+  position: fixed;
+  bottom: 25px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  animation: blink 1.5s infinite;
+  opacity: 0;              /* GANTI dari display:none */
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+
