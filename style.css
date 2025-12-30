@@ -167,14 +167,8 @@ button {
     50% { opacity: 0; }
 }
 
-.section {
-  display: none;
-}
 
-.section.active {
-  display: flex;
-}
-
+/* ===== SECTION ===== */
 .section {
   display: none;
   min-height: 100vh;
@@ -184,38 +178,18 @@ button {
   flex-direction: column;
   text-align: center;
   padding: 30px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .section.active {
   display: flex;
+  opacity: 1;
+  pointer-events: auto;
   animation: fadeIn 1.2s ease;
 }
 
-.section > h1,
-.section > h2,
-.section > p,
-.section > textarea,
-.section > button,
-.photo-frame {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 18px;
-  margin: 10px 0;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  max-width: 420px;
-  width: 100%;
-}
 
-.photo-frame {
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  border: 8px solid var(--purple);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-}
 
 .photo-frame img {
   width: 90%;
