@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Birthday Gift</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Gift</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <canvas id="confetti"></canvas>
 
-<!-- BALLOON DECOR -->
-<div class="balloon left"></div>
-<div class="balloon right"></div>
+  <canvas id="confetti"></canvas>
 
-<!-- FORM -->
-<div class="card fade-in active" id="formSection">
-    <h1>🎉 Birthday Gift 🎉</h1>
-    <p>Isi data kamu terlebih dahulu</p>
+  <div class="app">
 
-    <input type="text" id="name" placeholder="isi nama kamuu">
-    <input type="date" id="birth">
-    
-    <select id="gender">
-        <option value="">Jenis Kelamin</option>
-        <option value="Laki-laki">Laki-laki</option>
-        <option value="Perempuan">Perempuan</option>
-    </select>
+    <!-- BALLOON DECOR -->
+    <div class="balloon left"></div>
+    <div class="balloon right"></div>
 
-    <button onclick="showBirthday()">Lihat Ucapan</button>
-</div>
+    <!-- FORM (SECTION 0) -->
+    <div class="section active" id="formSection">
+      <div class="card fade-in">
+        <h1>🎉 Birthday Gift 🎉</h1>
+        <p>Isi data kamu terlebih dahulu</p>
 
-<!-- SECTION 1 -->
-<div class="section" id="sec1">
-  <h1 class="fade">🎉 Haii <span id="userName"></span> 🎉</h1>
-</div>
+        <input type="text" id="name" placeholder="isi nama kamuu">
+        <input type="date" id="birth">
 
-<!-- SECTION 2 -->
-<div class="section" id="sec2">
-    <h1 id="birthdayText" class="typing-text"></h1>
-</div>
+        <select id="gender">
+          <option value="">Jenis Kelamin</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
 
-<!-- SECTION 3 -->
-<div class="section" id="sec3">
-    <h2>📸 Hari Spesial Kamu</h2>
-    <div class="photo-frame">
-        <img src="WhatsApp Image 2025-12-30 at 14.16.22.jpeg" alt="foto ulang tahun">
+        <button onclick="showBirthday()">Lihat Ucapan</button>
+      </div>
     </div>
-</div>
 
-<!-- SECTION 4 -->
-<div class="section" id="sec4">
-    <h2>💌 Tulis Harapan Kamu</h2>
-    <textarea placeholder="Tulis harapanmu di sini..."></textarea>
-    <button onclick="nextSection()">Kirim</button>
-</div>
+    <!-- SECTION 1 -->
+    <div class="section" id="sec1">
+      <h1>🎉 Haii <span id="userName"></span> 🎉</h1>
+    </div>
 
-<!-- SECTION 5 -->
-<div class="section" id="sec5">
-    <h1>🎁 Terima Kasih 🎁</h1>
-    <p>Semoga harapanmu terkabul ✨</p>
-</div>
+    <!-- SECTION 2 -->
+    <div class="section" id="sec2">
+      <h1 id="birthdayText" class="typing-text"></h1>
+    </div>
 
-<!-- MUSIC --> 
-<audio id="music" src="WhatsApp Audio 2025-12-30 at 07.43.15.mpeg"></audio>
-    
-<script src="script.js"></script>
+    <!-- SECTION 3 -->
+    <div class="section" id="sec3">
+      <h2>📸 Hari Spesial Kamu</h2>
+      <div class="photo-frame">
+        <img src="WhatsApp Image 2025-12-30 at 14.16.22.jpeg" alt="foto ulang tahun">
+      </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="section" id="sec4">
+      <h2>💌 Tulis Harapan Kamu</h2>
+      <textarea placeholder="Tulis harapanmu di sini..."></textarea>
+      <button onclick="nextSection()">Kirim</button>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="section" id="sec5">
+      <h1>🎁 Terima Kasih 🎁</h1>
+      <p>Semoga harapanmu terkabul ✨</p>
+    </div>
+
+    <!-- MUSIC -->
+    <audio id="music" src="WhatsApp Audio 2025-12-30 at 07.43.15.mpeg"></audio>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
