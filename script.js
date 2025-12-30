@@ -34,7 +34,6 @@ function startConfetti() {
 }
 
 /* ================== SECTION CONTROL ================== */
-let currentSection = 0;
 const sections = [
   "formSection",
   "sec1",
@@ -43,6 +42,8 @@ const sections = [
   "sec4",
   "sec5"
 ];
+
+let currentSection = 0;
 
 function showSection(index) {
   sections.forEach((id, i) => {
@@ -73,14 +74,17 @@ function showBirthday() {
 
   showSection(1);
 
-  setTimeout(() => showSection(2), 2000);
-  setTimeout(() => startTyping(name), 2500);
-  setTimeout(() => showSection(3), 9000);
-  setTimeout(() => showSection(4), 12000);
+  setTimeout(() => {
+    showSection(2);
+    startTyping(name, () => {
+      setTimeout(() => showSection(3), 1500);
+      setTimeout(() => showSection(4), 4000);
+    });
+  }, 2000);
 }
 
 /* ================== TYPING EFFECT ================== */
-function startTyping(name) {
+function startTyping(name, done) {
   const text = `Selamat ulang tahun ${name} 🎂✨  
 Semoga di umur baru ini kamu selalu diberi kesehatan,  
 kebahagiaan, dan semua impianmu pelan-pelan tercapai 🤍`;
@@ -92,11 +96,14 @@ kebahagiaan, dan semua impianmu pelan-pelan tercapai 🤍`;
   const typing = setInterval(() => {
     el.innerHTML += text.charAt(i);
     i++;
-    if (i >= text.length) clearInterval(typing);
+    if (i >= text.length) {
+      clearInterval(typing);
+      if (done) done();
+    }
   }, 60);
 }
 
-/* ================== SECTION 4 → 5 + SAVE MESSAGE ================== */
+/* ================== SECTION 4 → 5 ================== */
 function nextSection() {
   const name = document.getElementById("name").value.trim();
   const message = document.querySelector("#sec4 textarea").value.trim();
@@ -119,10 +126,10 @@ ${message}
 🕒 Waktu: ${new Date().toLocaleString()}
   `;
 
-  const waURL = `https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(waText)}`;
-
-  // buka WhatsApp
-  window.open(waURL, "_blank");
+  window.open(
+    `https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(waText)}`,
+    "_blank"
+  );
 
   showSection(5);
   startConfetti();
@@ -133,4 +140,3 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
-
