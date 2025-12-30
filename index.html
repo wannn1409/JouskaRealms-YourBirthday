@@ -13,12 +13,12 @@
 <div class="balloon right"></div>
 
 <!-- FORM -->
-<div class="card fade-in" id="formSection">
+<div class="card fade-in active" id="formSection">
     <h1>🎉 Birthday Gift 🎉</h1>
     <p>Isi data kamu terlebih dahulu</p>
 
     <input type="text" id="name" placeholder="isi nama kamuu">
-    <input type="date" id="birth" placeholder="kamu kapan lahirnyaa">
+    <input type="date" id="birth">
     
     <select id="gender">
         <option value="">Jenis Kelamin</option>
@@ -29,41 +29,36 @@
     <button onclick="showBirthday()">Lihat Ucapan</button>
 </div>
 
-<!-- RESULT 1-->
-<div class="card hidden scale-in" id="resultSection">
-    <h2>HAPPY BIRTHDAY 🎂</h2>
-    <h1 id="resultName"></h1>
-<p id="resultText" class="typing-text"></p>
-    <button onclick="reset()">Selanjutnya</button>
-</div>
-
 <!-- SECTION 1 -->
-<div class="card hidden scale-in" id="section1">
-    <h2>🎂 HAPPY BIRTHDAY 🎂</h2>
-    <p class="typing-text" id="text1"></p>
-    <button onclick="toSection2()">Selanjutnya</button>
+<div class="section" id="sec1">
+    <h1 class="fade">🎉 Haii Kamu 🎉</h1>
 </div>
 
 <!-- SECTION 2 -->
-<div class="card hidden scale-in" id="section2">
-    <h2>✨ Doa & Harapan ✨</h2>
-    <p class="typing-text" id="text2"></p>
-    <button onclick="toSection3()">Selanjutnya</button>
+<div class="section" id="sec2">
+    <h1 id="birthdayText" class="typing-text"></h1>
 </div>
 
 <!-- SECTION 3 -->
-<div class="card hidden scale-in" id="section3">
-    <h2>🎁 Pesan Terakhir 🎁</h2>
-    <p class="typing-text" id="text3"></p>
-    <button onclick="reset()">Selesai</button>
+<div class="section" id="sec3">
+    <h2>📸 Hari Spesial Kamu</h2>
+    <div class="photo-frame">
+        <img src="foto-placeholder.jpg" alt="foto ulang tahun">
+    </div>
 </div>
 
+<!-- SECTION 4 -->
+<div class="section" id="sec4">
+    <h2>💌 Tulis Harapan Kamu</h2>
+    <textarea placeholder="Tulis harapanmu di sini..."></textarea>
+    <button onclick="nextSection()">Kirim</button>
+</div>
 
-<!-- CONFETTI -->
-<canvas id="confetti"></canvas>
-
-<!-- MUSIC -->
-<audio id="music" src="WhatsApp Audio 2025-12-30 at 07.43.15.mpeg"></audio>
+<!-- SECTION 5 -->
+<div class="section" id="sec5">
+    <h1>🎁 Terima Kasih 🎁</h1>
+    <p>Semoga harapanmu terkabul ✨</p>
+</div>
 
 <script src="script.js"></script>
 </body>
