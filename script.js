@@ -63,3 +63,24 @@ window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+function showSection(hideId, showId) {
+    document.getElementById(hideId).classList.add("hidden");
+    document.getElementById(showId).classList.remove("hidden");
+}
+
+function toSection1() {
+    showSection("sectionForm", "section1");
+}
+
+function toSection2() {
+    showSection("section1", "section2");
+}
+
+function toSection3() {
+    showSection("section2", "section3");
+}
+
+function reset() {
+    location.reload();
+}
