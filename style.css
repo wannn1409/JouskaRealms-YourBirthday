@@ -166,3 +166,61 @@ button {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: flex;
+}
+
+.section {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+}
+
+.section.active {
+  display: flex;
+  animation: fadeIn 1.2s ease;
+}
+
+.section > h1,
+.section > h2,
+.section > p,
+.section > textarea,
+.section > button,
+.photo-frame {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 18px;
+  margin: 10px 0;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  max-width: 420px;
+  width: 100%;
+}
+
+.photo-frame {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 8px solid var(--purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.photo-frame img {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
