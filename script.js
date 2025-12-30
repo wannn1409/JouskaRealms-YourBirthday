@@ -70,6 +70,13 @@ function showBirthday() {
     return;
   }
 
+  // ▶️ PLAY MUSIC (AMAN HP)
+  const music = document.getElementById("music");
+  music.volume = 0.6;
+  music.play().catch(() => {
+    console.log("Autoplay diblokir, tapi user sudah klik");
+  });
+
   document.getElementById("userName").innerText = name;
 
   showSection(1);
