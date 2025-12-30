@@ -12,12 +12,10 @@
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
     background: linear-gradient(135deg, var(--purple), var(--blue));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* CARD */
@@ -170,16 +168,13 @@ button {
 
 /* ===== SECTION ===== */
 .section {
-  display: none;
-  min-height: 100vh;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 30px;
-  opacity: 0;
-  pointer-events: none;
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
 }
 
 .section.active {
@@ -201,4 +196,12 @@ button {
   height: 90%;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
