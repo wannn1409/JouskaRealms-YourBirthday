@@ -4,8 +4,8 @@ const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-const sections = ["formSection", "sec1", "sec2", "sec3", "sec4", "sec5"];
-const tapAllowedSections = ["sec2", "sec3"];
+const sections = ["formSection", "sec2", "sec3", "sec4", "sec5"];
+const tapAllowedSections = ["sec1", "sec2", "sec3"];
 let currentIndex = 0;
 let canNext = false;
 let userName = "";
@@ -84,9 +84,12 @@ function typeText(id, text, speed, isName = false) {
 }
 
 function birthdayMessage() {
-  return `Selamat ulang tahun ${userName} 🎂✨  
-Semoga di umur baru ini kamu selalu diberi kesehatan,  
-kebahagiaan, dan semua impianmu pelan-pelan tercapai 🤍`;
+  return `Haii kamu ${userName} yang lagi ulang tahun 🥳🎂✨  
+Aku ucapkan Selamat Ulang Tahun untuk kamu yaa, 
+aku doakan kamu sehat selalu, panjang umurnya, 
+lancar rezekinya, dan pertemanan kita 
+akan terus terjalin semakin baik bersama. 
+Jadikan hari ini hari yang berbahagia untukmu yaa 🤍`;
 }
 
 /* ================= FORM ================= */
