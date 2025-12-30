@@ -125,10 +125,10 @@ button {
 
 /* CONFETTI */
 #confetti {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* RESPONSIVE */
@@ -189,7 +189,12 @@ button {
   animation: fadeIn 1.2s ease;
 }
 
-
+/* ===== LAYER FIX ===== */
+.card,
+.section {
+  position: relative;
+  z-index: 1;
+}
 
 .photo-frame img {
   width: 90%;
@@ -197,4 +202,3 @@ button {
   border-radius: 50%;
   object-fit: cover;
 }
-
