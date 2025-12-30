@@ -34,7 +34,7 @@ function startConfetti() {
 }
 
 /* ================= SECTION CONTROL ================= */
-let current = 0; // form = 0
+let current = 0;
 
 function showSection(id) {
   document.querySelectorAll(".section").forEach(sec => {
@@ -60,9 +60,18 @@ function showBirthday() {
   }
 
   document.getElementById("formSection").style.display = "none";
+
+  current = 1;
   showSection("sec1");
 
-  setTimeout(() => nextSection(), 2500);
+  // ganti nama di section 1
+  document.querySelector("#sec1 h1").innerText = `🎉 Haii ${name} 🎉`;
+
+  // auto ke section 2
+  setTimeout(() => {
+    nextSection();
+    typing();
+  }, 2500);
 }
 
 /* ================= TYPING ================= */
@@ -70,19 +79,21 @@ const text = "Selamat ulang tahun 🎂 Semoga hari ini penuh senyum dan bahagia"
 let i = 0;
 
 function typing() {
-  if (i < text.length) {
-    document.getElementById("birthdayText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 80);
-  } else {
-    setTimeout(() => nextSection(), 1500);
-  }
-}
+  const el = document.getElementById("birthdayText");
+  el.innerHTML = "";
+  i = 0;
 
-/* ================= AUTO FLOW ================= */
-document.getElementById("sec1").addEventListener("transitionend", () => {
-  typing();
-});
+  function run() {
+    if (i < text.length) {
+      el.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(run, 80);
+    } else {
+      setTimeout(() => nextSection(), 1500);
+    }
+  }
+  run();
+}
 
 /* ================= HARAPAN ================= */
 let wish = "";
@@ -95,3 +106,4 @@ window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
+
