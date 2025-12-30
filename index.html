@@ -29,13 +29,35 @@
     <button onclick="showBirthday()">Lihat Ucapan</button>
 </div>
 
-<!-- RESULT -->
+<!-- RESULT 1-->
 <div class="card hidden scale-in" id="resultSection">
     <h2>HAPPY BIRTHDAY 🎂</h2>
     <h1 id="resultName"></h1>
 <p id="resultText" class="typing-text"></p>
-    <button onclick="reset()">Ulangi</button>
+    <button onclick="reset()">Selanjutnya</button>
 </div>
+
+<!-- SECTION 1 -->
+<div class="card hidden scale-in" id="section1">
+    <h2>🎂 HAPPY BIRTHDAY 🎂</h2>
+    <p class="typing-text" id="text1"></p>
+    <button onclick="toSection2()">Selanjutnya</button>
+</div>
+
+<!-- SECTION 2 -->
+<div class="card hidden scale-in" id="section2">
+    <h2>✨ Doa & Harapan ✨</h2>
+    <p class="typing-text" id="text2"></p>
+    <button onclick="toSection3()">Selanjutnya</button>
+</div>
+
+<!-- SECTION 3 -->
+<div class="card hidden scale-in" id="section3">
+    <h2>🎁 Pesan Terakhir 🎁</h2>
+    <p class="typing-text" id="text3"></p>
+    <button onclick="reset()">Selesai</button>
+</div>
+
 
 <!-- CONFETTI -->
 <canvas id="confetti"></canvas>
