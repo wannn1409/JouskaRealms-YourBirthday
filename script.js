@@ -64,15 +64,16 @@ function showBirthday() {
   current = 1;
   showSection("sec1");
 
-  // ganti nama di section 1
-  document.querySelector("#sec1 h1").innerText = `🎉 Haii ${name} 🎉`;
+  // isi nama user
+  document.getElementById("userName").innerText = name;
 
-  // auto ke section 2
+  // auto pindah ke section 2 + typing
   setTimeout(() => {
     nextSection();
     typing();
   }, 2500);
 }
+
 
 /* ================= TYPING ================= */
 const text = "Selamat ulang tahun 🎂 Semoga hari ini penuh senyum dan bahagia";
